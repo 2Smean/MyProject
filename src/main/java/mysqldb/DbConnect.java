@@ -15,6 +15,7 @@ public class DbConnect {
         try {
             Class.forName(MYSQL_DRIVER);
         } catch (ClassNotFoundException e) {
+            System.out.println(e);
             // TODO Auto-generated catch block
             System.out.println("Mysql 드라이버 오류:"+e.getMessage());
         }
