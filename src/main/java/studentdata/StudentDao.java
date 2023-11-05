@@ -63,6 +63,7 @@ public class StudentDao {
             //실행
             pstmt.execute();
         } catch (SQLException e) {
+            System.out.println("DB 연결이 실패하였습니다");
             // TODO Auto-generated catch block
             e.printStackTrace();
         }finally {

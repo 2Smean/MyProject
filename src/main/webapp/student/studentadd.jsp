@@ -1,5 +1,6 @@
 <%@page import="studentdata.StudentDto"%>
 <%@page import="studentdata.StudentDto"%>
+<%@ page import="studentdata.StudentDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%
@@ -7,13 +8,14 @@
   String blood=request.getParameter("blood");
   String phone=request.getParameter("phone");
   //dao
-  studentdata.StudentDto dao=new studentdata.StudentDto();
+  StudentDao studentDao = new StudentDao();
   //dto
   StudentDto dto=new StudentDto();
   dto.setName(name);
   dto.setBlood(blood);
   dto.setPhone(phone);
 
+
   //insert
-  dao.insertStudent(dto);
+  studentDao.insertStudent(dto);
 %>

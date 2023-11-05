@@ -25,9 +25,6 @@ public class DbConnect {
     {
         Connection conn=null;
         try {
-            //local 연결
-//			conn=DriverManager.getConnection(MYSQL_URL, "root", "1234");
-
             //원격 mysql 연결
             conn=DriverManager.getConnection(MYSQL_URL, "study", "bitcamp123!@#");
         } catch (SQLException e) {
