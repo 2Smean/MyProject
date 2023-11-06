@@ -1,4 +1,4 @@
-package studentdata;
+package student.data;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
-import mysqldb.DbConnect;
+import mysql.db.DbConnect;
 
 public class StudentDao {
     DbConnect db=new DbConnect();

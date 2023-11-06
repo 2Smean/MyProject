@@ -1,4 +1,4 @@
-package mysqldb;
+package mysql.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class DbConnect {
     //static final String MYSQL_URL="jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul";
 
     //원격 mysql url
-    static final String MYSQL_URL="jdbc:mysql://db-jbno2-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul";
+    static final String MYSQL_URL="jdbc:mysql://db-jbnpb-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul";
 
     public DbConnect() {
         // TODO Auto-generated constructor stub

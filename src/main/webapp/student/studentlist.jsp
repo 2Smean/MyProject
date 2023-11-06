@@ -1,17 +1,17 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
-<%@ page import="studentdata.StudentDto" %>
+<%@ page import="student.data.StudentDto" %>
 
-<%@ page import="studentdata.StudentDao" %>
+<%@ page import="student.data.StudentDao" %>
 <%@ page import="org.json.simple.JSONArray" %>
 <%@ page import="org.json.simple.JSONObject" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%
     String search=request.getParameter("search");
-    StudentDao studentDao = new StudentDao();
+    StudentDao dao = new StudentDao();
 
-    List<StudentDto> list=studentDao.getSearchStudent(search);
+    List<StudentDto> list=dao.getSearchStudent(search);
     SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     JSONArray arr=new JSONArray();

@@ -1,4 +1,4 @@
-package studentdata;
+package student.data;
 
 import java.sql.Timestamp;
 
