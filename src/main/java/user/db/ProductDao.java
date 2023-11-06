@@ -41,6 +41,35 @@ public class ProductDao {
         return list;
 
     }
+    public ProductDto showModal(int nProductSeq) {
+        Connection conn = db.getConnection();
+        String sql = "SELECT * FROM Product WHERE nProductSeq = ?";
+        PreparedStatement pstmt = null;
+        ProductDto dto = null;
+        ResultSet rs = null;
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, nProductSeq);
+            rs = pstmt.executeQuery();
+
+
+            if (rs.next()) {
+                System.out.println("여기느 ㄴ왔냐 ");
+                dto = new ProductDto();
+                dto.setnProductSeq(rs.getInt("nProductSeq"));
+                dto.setsProductName(rs.getString("sProductName"));
+                dto.setsProductAuthor(rs.getString("sProductAuthor"));
+                dto.setsProductPublisher(rs.getString("sProductPublisher"));
+                dto.setsProductDescription(rs.getString("sProductDescription"));
+                dto.setsProductImage(rs.getString("sProductImage"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.dbClose(rs, pstmt, conn);
+        }
+        return dto;
+    }
 
 
     // 사용자 정보 검색

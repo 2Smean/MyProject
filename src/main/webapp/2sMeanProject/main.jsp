@@ -15,6 +15,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            position: absolute;
         }
     </style>
 </head>
@@ -87,25 +88,9 @@
                             <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-
-                        <div class="modal-body p-5 pt-0">
-                            <form class="">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-                                    <label for="floatingPassword">Password</label>
-                                </div>
-                                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
-                                <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
-                                <hr class="my-4">
-                                <h2 class="fs-5 fw-bold mb-3">Use For Free-BOOK</h2>
-                            </form>
-                        </div>
                     </div>
                 </div>
+                <hr>
             </div>
         </div>
     </main>
@@ -114,11 +99,9 @@
 </body>
 <script>
     const btnIdx = $(".modalDataBtn");
-    const modal = $("#modalSignin");
 
+    const modal = $(".modal-dialog");
     // 모달을 처음에 숨겨두기
-    modal.css("display", "none");
-
     btnIdx.on("click", function () {
         const idx = $(this).data("idx");
         console.log(idx);
@@ -126,15 +109,60 @@
         // 모달을 화면 가운데로 이동하고 보이도록 설정
         modal.css({
             display: "block",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
         });
-    });
+        $.ajax({
+            url: "/2sMeanProject/modal.jsp",
+            method: "get",
+            dataType: "json",
+            data: {
+                nProductSeq: idx,
+            },
+            success: function (response) {
+                // 모달 내용을 업데이트
+                const modalContent = $(".modal-content");
+                modalContent.empty(); // 모달 내용 초기화
+
+                const modalHeader = $("<div class='modal-header p-5 pb-4 border-bottom-0'></div>");
+                modalHeader.append("<h1 class='fw-bold mb-0 fs-2'>" + response.sProductName + "</h1>");
+                modalHeader.append("<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>");
+
+                const modalBody = $("<div class='modal-body p-5 pt-0'></div>");
+
+                // 테이블 생성
+                const table = $("<table class='table table-bordered'></table>");
+
+                // 테이블 내용 추가
+                table.append("<tr><th>Author</th><td>" + response.sProductAuthor + "</td></tr>");
+                table.append("<tr><th>Publisher</th><td>" + response.sProductPublisher + "</td></tr>");
+
+                // Description을 텍스트로 표시
+                const descriptionText = $("<p>" + response.sProductDescription + "</p>");
+
+                // 이미지 뿌리기
+                const modalImage = $("<img src='" + response.sProductImage + "' width='180px' height='200px' alt='Product Image' />");
+
+                modalBody.append(table);
+                modalBody.append(descriptionText); // Description을 텍스트로 추가
+                modalBody.append(modalImage);
+
+                modalContent.append(modalHeader);
+                modalContent.append(modalBody);
+
+                modal.css("display", "block");
+            },
+            error: function (error) {
+                console.error(error);
+                console.log("모달 부분 잘못되었음");
+            }
+        });
+
+// 모달 닫기 버튼 이벤트 처리
+        $(".modal .btn-close").on("click", function () {
+            modal.css("display", "none");
+        });
+    })
 
     // 모달 닫기 버튼 이벤트 핸들러
-    $(".modal .btn-close").on("click", function () {
-        modal.css("display", "none");
-    });
+
 </script>
 </html>
