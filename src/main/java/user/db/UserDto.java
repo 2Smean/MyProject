@@ -3,30 +3,19 @@ package user.db;
 public class UserDto {
 
     private String sUserEmail;
-
-
     private String sUserPassword;
-
-
     private String sUserName;
-
-
     private String sUserPhoneNumber;
-
     private String sUserType;
-
-
     public String getsUserEmail() {
         return sUserEmail;
     }
-
     public void setsUserEmail(String sUserEmail) {
         this.sUserEmail = sUserEmail;
     }
     public String getsUserPassword() {
         return sUserPassword;
     }
-
     public void setsUserPassword(String sUserPassword) {
         this.sUserPassword = sUserPassword;
     }

@@ -59,7 +59,7 @@
     <h1 class="h3 mb-3 fw-normal">Create Account</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" name="sUserEmail" placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingInput" name="sUserEmail" placeholder="name@example.com" style="margin-bottom: 10px">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
@@ -67,25 +67,28 @@
       <label for="floatingPassword">Password</label>
     </div>
     <div class="form-floating">
-      <input type="text" class="form-control" id="sUserName" name="sUserName" placeholder="userName">
+      <input type="text" class="form-control" id="sUserName" name="sUserName" placeholder="userName" style="margin-bottom: 10px">
       <label for="sUserName">userName</label>
     </div>
     <div class="form-floating">
-      <input type="text" class="form-control" id="sUserPhoneNumber" name="sUserPhoneNumber" placeholder="PhoneNumber">
+      <input type="text" class="form-control" id="sUserPhoneNumber" name="sUserPhoneNumber" placeholder="PhoneNumber" style="margin-bottom: 10px">
       <label for="sUserPhoneNumber">PhoneNumber</label>
-    </div>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="sUserType" name="sUserType" placeholder="User Type">
-      <label for="sUserType">User Type</label>
+      <input type="hidden" class="form-control" id="sUserType" name="sUserType" placeholder="User Type">
     </div>
 
-    <button class="btn w-100 py-2" style="background-color: blue; color: whitesmoke" type="submit">Create</button>
-
+    <div style="display: flex">
+    <button class="btn w-100 py-2" style="background-color: blue; margin-right : 10px; color: whitesmoke" type="submit">Create</button>
+      <button class="btn w-100 py-2" style="background-color: seagreen; color: whitesmoke" type="button" id="loginBtn">Login</button>
+    </div>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
   </form>
 </main>
 </body>
 <script>
   const sUserEmail = $("#floatingInput");
+  const loginBtn = $("#loginBtn");
+  loginBtn.on("click",function (){
+    location.href = "/2sMeanProject/index.jsp";
+  })
 </script>
 </html>

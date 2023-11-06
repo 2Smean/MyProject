@@ -55,9 +55,9 @@
 
 <main class="form-signin w-100 m-auto">
     <form action="logincheck.jsp" method="post">
-        <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788934978084.jpg" alt="구매/대여 서비스" class="base_logo" title="" style="color: black">
+<%--        <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788934978084.jpg" alt="구매/대여 서비스" class="base_logo" title="" style="color: black">--%>
         <h1 class="h3 mb-3 fw-normal">로그인을 해주세요</h1>
-
+    <img src="../image/이찬호.jpg" width="500px" height="500px">
         <div class="form-floating">
             <input type="email" class="form-control" id="floatingInput" name="loginid" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>

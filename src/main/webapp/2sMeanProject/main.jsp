@@ -1,3 +1,6 @@
+<%@ page import="user.db.ProductDao" %>
+<%@ page import="java.util.List" %>
+<%@ page import="user.db.ProductDto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -11,6 +14,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 <%
+    ProductDao productDao = new ProductDao();
+    List<ProductDto> list = productDao.showProduct();
+
     String name=request.getParameter("sUserEmail");
     System.out.println(name);
 %>
@@ -50,7 +56,7 @@
     <main class="container">
         <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
             <div class="col-lg-6 px-0">
-                <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+                <h1 class="display-4 fst-italic">Book of a longer featured blog post</h1>
                 <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
                 <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Continue reading...</a></p>
             </div>

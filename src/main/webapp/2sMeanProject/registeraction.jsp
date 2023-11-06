@@ -18,28 +18,26 @@
     String sUserPassword = request.getParameter("sUserPassword");
     String sUserName = request.getParameter("sUserName");
     String sUserPhoneNumber = request.getParameter("sUserPhoneNumber");
-    String sUserType = request.getParameter("sUserType");
 
     // 사용자 정보 객체 생성
-    UserDto newUser = new UserDto();
-    newUser.setsUserEmail(sUserEmail);
-    newUser.setsUserPassword(sUserPassword);
-    newUser.setsUserName(sUserName);
-    newUser.setsUserPhoneNumber(sUserPhoneNumber);
-    newUser.setsUserType(sUserType);
+    UserDto userDto = new UserDto();
+    userDto.setsUserEmail(sUserEmail);
+    userDto.setsUserPassword(sUserPassword);
+    userDto.setsUserName(sUserName);
+    userDto.setsUserPhoneNumber(sUserPhoneNumber);
+    userDto.setsUserType(String.valueOf(0));
 
     // UserDao 객체 생성
     UserDao userDao = new UserDao();
 
     // 사용자 정보 등록
-    userDao.addUser(newUser);
-%>
+    userDao.addUser(userDto);
 
-<h2>Registration Result</h2>
-<p>회원가입을 성공했습니다.</p>
-<p>Email: <%= sUserEmail %></p>
-<p>Name: <%= sUserName %></p>
-<p>Phone Number: <%= sUserPhoneNumber %></p>
+%>
+<script>
+    alert('회원가입 성공하였습니다!')
+    location.href = "/2sMeanProject/index.jsp";
+</script>
 
 <p><a href="index.jsp">Go back to the homepage</a></p>
 </body>
