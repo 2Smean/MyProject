@@ -2,11 +2,24 @@ package user.db;
 
 public class ProductDto {
 
+    private int nProductSeq;
+
+    public int getnProductSeq() {
+        return nProductSeq;
+    }
+
+    public void setnProductSeq(int nProductSeq) {
+        this.nProductSeq = nProductSeq;
+    }
+
     private String sProductName;
     private String sProductAuthor;
     private String sProductPublisher;
     private String sProductDescription;
     private String sProductImage;
+
+    public ProductDto() {
+    }
 
     public String getsProductName() {
         return sProductName;

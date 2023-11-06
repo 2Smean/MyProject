@@ -15,18 +15,17 @@ public class ProductDao {
 
     // 사용자 정보 저장
     public  List<ProductDto> showProduct() {
+        List<ProductDto> list = new Vector<ProductDto>();
         Connection conn = db.getConnection();
-        PreparedStatement pstmt = null;
-        ArrayList<ProductDto> list = new ArrayList<ProductDto>();
-        ResultSet rs = null;
         String sql = "SELECT * FROM Product";
-        System.out.println(sql);
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
         try {
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
-            System.out.println("rs = " + rs);
             while (rs.next()){
                 ProductDto dto = new ProductDto();
+                dto.setnProductSeq(rs.getInt("nProductSeq"));
                 dto.setsProductName(rs.getString("sProductName"));
                 dto.setsProductAuthor(rs.getString("sProductAuthor"));
                 dto.setsProductPublisher(rs.getString("sProductPublisher"));
@@ -39,8 +38,8 @@ public class ProductDao {
         } finally {
             db.dbClose(pstmt, conn);
         }
-        System.out.println("list = " + list);
         return list;
+
     }
 
 
@@ -59,7 +58,9 @@ public class ProductDao {
                 pstmt.setString(1, email);
                 rs = pstmt.executeQuery();
 
+
                 if (rs.next()) {
+                    System.out.println("여기느 ㄴ왔냐 ");
                     user = new UserDto();
                     user.setsUserEmail(rs.getString("user_email"));
                     user.setsUserPassword(rs.getString("user_password"));
