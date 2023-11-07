@@ -80,7 +80,7 @@
     <button class="btn w-100 py-2" style="background-color: blue; margin-right : 10px; color: whitesmoke" type="submit">Create</button>
       <button class="btn w-100 py-2" style="background-color: seagreen; color: whitesmoke" type="button" id="loginBtn">Login</button>
     </div>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+    <p class="mt-5 mb-3 text-body-secondary">2023</p>
   </form>
 </main>
 </body>

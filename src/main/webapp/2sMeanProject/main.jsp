@@ -155,6 +155,16 @@
                 console.log("모달 부분 잘못되었음");
             }
         });
+        btnIdx.on("click", function () {
+            // ... (이전 코드)
+
+            // 모달 닫기 버튼 이벤트 처리
+            $(".modal .btn-close").on("click", function () {
+                modal.modal("hide");
+            });
+
+            // ...
+        });
 
 // 모달 닫기 버튼 이벤트 처리
         $(".modal .btn-close").on("click", function () {
